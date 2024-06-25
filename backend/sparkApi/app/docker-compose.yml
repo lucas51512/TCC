@@ -1,0 +1,36 @@
+version: '3'
+services:
+  spark:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - SPARK_MASTER_HOST=spark-master
+      - SPARK_MASTER_PORT=7077
+      - SPARK_HOME=/opt/spark
+    depends_on:
+      - mongodb
+
+  spark-master:
+    image: bitnami/spark:latest
+    environment:
+      - SPARK_MODE=master
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+
+  spark-worker:
+    image: bitnami/spark:latest
+    environment:
+      - SPARK_MODE=worker
+      - SPARK_MASTER_URL=spark://spark-master:7077
+    depends_on:
+      - spark-master
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 123
