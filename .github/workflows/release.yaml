@@ -2,7 +2,7 @@
  on:
    push:
      branches:
-       - main
+       - master
  jobs:
    deploy_scripts_s3:
      name: Copy scripts to s3
