@@ -15,10 +15,10 @@ variable "prefix" {
 # Prefix configuration and project common tags
 locals {
   glue_bucket = "${var.bucket_names[6]}-${var.account_id}"
-#   prefix      = var.prefix
-#   common_tags = {
-#     Project = "trn-cc-bg-aws"
-#   }
+  prefix      = var.prefix
+  common_tags = {
+    Project = "trn-cc-bg-aws"
+  }
 }
 
 variable "bucket_names" {
