@@ -25,12 +25,12 @@ variable "bucket_names" {
   description = "s3 bucket names"
   type        = list(string)
   default = [
-    "landing-zone",
-    "bronze",
-    "silver",
-    "gold",
-    "processing-zone",
-    "consumer-zone",
+    "landing-zone-s3",
+    "domain-bronze-s3",
+    "domain-silver-s3",
+    "domain-gold-s3",
+    "processing-zone-s3",
+    "consumer-zone-s3",
     "aws-glue-scripts"
   ]
 }
