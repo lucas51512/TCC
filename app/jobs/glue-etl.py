@@ -46,7 +46,6 @@ def create_spark_session():
     * output_data the s3 bucket path to store users, time and song_plays table
 """    
 
-
 def main():
     spark = create_spark_session()
     input_data = "s3://tcc-landing-zone-s3-654654318164/"
