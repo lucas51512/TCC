@@ -33,6 +33,11 @@ def create_spark_session():
     * output_data the s3 bucket path to store songs and artists table
 """
 
+def process_data(spark, input_data, output_data):
+    truck_data = input_data + "truck-data/*/"
+    
+    df = spark.read.json(truck_data)
+
 
 """
     This procedure processes log files whose filepath has been provided as an arugment.
@@ -45,6 +50,8 @@ def create_spark_session():
     * input_data the s3 bucket path to the log data
     * output_data the s3 bucket path to store users, time and song_plays table
 """    
+
+
 
 def main():
     spark = create_spark_session()
