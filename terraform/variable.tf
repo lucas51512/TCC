@@ -17,7 +17,7 @@ locals {
   glue_bucket = "${var.bucket_names[6]}-${var.account_id}"
   prefix      = var.prefix
   common_tags = {
-    Project = "trn-cc-bg-aws"
+    Project = "tcc"
   }
 }
 
